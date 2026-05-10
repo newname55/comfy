@@ -1,0 +1,28 @@
+name: Deploy to Lolipop
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Lolipop by FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ftp.lolipop.jp
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./
+          server-dir: renewal/
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/README.md
