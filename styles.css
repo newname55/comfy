@@ -1249,8 +1249,14 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: clamp(280px, 39svh, 390px) 28px 0;
+    padding: clamp(620px, 76svh, 740px) 28px 0;
     color: #5a4036;
+  }
+
+  .mobile-hero-title,
+  .mobile-hero-script,
+  .mobile-hero-copy {
+    display: none;
   }
 
   .hero-actions,
